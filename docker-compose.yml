@@ -15,7 +15,7 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: db_matterhorn_wp
+      MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: example
     # volumes:
     #   - ./mysqldump/db_matterhorn_wp-init.sql:/docker-entrypoint-initdb.d/db_matterhorn_wp-init.sql
