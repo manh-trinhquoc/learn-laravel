@@ -40,6 +40,8 @@ services:
       - ./laravel/:/var/www/html
     depends_on:
       - db
+    ports:
+      - "8000:8000"
   profiling:
     build:
       context: .
