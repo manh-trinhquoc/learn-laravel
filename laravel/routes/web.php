@@ -28,3 +28,6 @@ Route::get(
 Route::get('events', 'App\Http\Controllers\EventsController@index');
 
 // Route::resource('tasks', 'App\Http\Controllers\TaskController');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
