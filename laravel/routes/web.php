@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', 'App\Http\Controllers\WelcomeController@index');
+// Route::get('/', 'App\Http\Controllers\WelcomeController@index');
 Route::get('events/{id}', 'App\Http\Controllers\EventsController@show')->name('events.show');
 
 Route::get(

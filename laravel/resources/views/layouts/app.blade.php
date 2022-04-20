@@ -1,13 +1,25 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
-    <title>App Name - @yield('title')</title>
+    <meta charset="UTF-8">
+    <title>Welcome to HackerPair</title>
 </head>
 
 <body>
-    <div class="container">
+    <div>
+
         @yield('content')
     </div>
+    <div>
+        @section('advertisement')
+        <p>
+            Score some HackerPair swag in our store!
+        </p>
+        @show
+
+    </div>
+
 </body>
 
 </html>
