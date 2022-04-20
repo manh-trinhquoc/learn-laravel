@@ -25,4 +25,6 @@ Route::get(
     'App\Http\Controllers\EventsController@category'
 );
 
+Route::get('events', 'App\Http\Controllers\EventsController@index');
+
 // Route::resource('tasks', 'App\Http\Controllers\TaskController');
