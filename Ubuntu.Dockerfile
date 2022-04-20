@@ -21,9 +21,11 @@ RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN apt-get install mysql-client -y
 
-
+RUN cd ~
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o /tmp/nodesource_setup.sh
+RUN bash /tmp/nodesource_setup.sh
 RUN apt-get install -y nodejs
-RUN apt-get install -y npm
+RUN apt-get install -y build-essential
 
 WORKDIR /var/www/html
 
