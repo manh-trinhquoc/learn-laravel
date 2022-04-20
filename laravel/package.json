@@ -19,6 +19,6 @@
         "sass-loader": "^12.6.0"
     },
     "dependencies": {
-        "bootstrap-sass": "^3.4.3"
+        "bootstrap": "^5.1.3"
     }
 }
