@@ -7,6 +7,7 @@
 {!! HTML::style('css/app.min.css') !!}
 {!! HTML::script('js/jquery.min.js') !!}
 {!! HTML::script('js/app.js') !!}
+{!! HTML::style('css/app.css') !!}
 
 <ul>
     @foreach ($events as $event)
