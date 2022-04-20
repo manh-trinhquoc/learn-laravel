@@ -18,4 +18,19 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testHomepageContainsProjectName()
+    {
+        $response = $this->get('/tasks');
+
+        $response->assertSeeText('Laravel');
+    }
+
+
+    public function testNonexistentEndpointReturns404()
+    {
+        $response = $this->get('/contact');
+
+        $response->assertStatus(404);
+    }
 }
