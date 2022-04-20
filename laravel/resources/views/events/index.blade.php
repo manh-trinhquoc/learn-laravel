@@ -1,3 +1,13 @@
+<img src="/img/logo.png" />
+<img src="{{ asset('img/logo.png') }}" />
+<!-- Using the LaravelCollective/html package -->
+{!! HTML::image('img/logo.png', 'HackerPair logo') !!}
+
+<!-- Using the LaravelCollective/html package -->
+{!! HTML::style('css/app.min.css') !!}
+{!! HTML::script('js/jquery.min.js') !!}
+{!! HTML::script('js/app.js') !!}
+
 <ul>
     @foreach ($events as $event)
     <li>{{ $event }}</li>
