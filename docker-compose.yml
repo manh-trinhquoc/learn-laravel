@@ -49,3 +49,10 @@ services:
       - ./docker/wordpress/tmp/xdebug:/tmp/
     ports:
       - "90:8080"
+  adminer:
+    image: adminer
+    # restart: always
+    ports:
+      - 9080:8080
+    depends_on:
+      - db
