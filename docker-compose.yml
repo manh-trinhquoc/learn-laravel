@@ -29,7 +29,6 @@ services:
       - ./laravel:/var/www/html
     depends_on:
       - php
-  
   # các service để test
   ubuntu:
     build:
