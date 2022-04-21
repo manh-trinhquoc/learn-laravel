@@ -1,12 +1,17 @@
-{{-- Output the $id variable. --}}
-<p>We're looking at event ID #{{ $id }}.</p>
-<p>
-    {{ $name }} has the event ID #{{ $id }}.
-</p>
-<p>
-    {{ $name2 }} is scheduled for {{ $date }}!
-</p>
+@extends('layouts.app')
+
+@section('content')
+
+<h1>{{ $event->name }}</h1>
 
 <p>
-    Welcome, {{ $name or "HackerPair Member" }}!
+    City: {{ $event->city }} <br />
+    Venue: {{ $event->venue }}
 </p>
+
+<h2>Description</h2>
+<p>
+    {{ $event->description }}
+</p>
+
+@endsection
