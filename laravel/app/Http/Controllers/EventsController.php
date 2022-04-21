@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class EventsController extends Controller
 {
@@ -46,8 +47,13 @@ class EventsController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    // public function show(Event $event)
+    // {
+    //     return view('events.show')->with('event', $event);
+    // }
+    public function show($id)
     {
+        $event = Event::findOrFail($id);
         return view('events.show')->with('event', $event);
     }
 
