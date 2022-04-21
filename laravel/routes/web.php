@@ -13,19 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('/', 'App\Http\Controllers\WelcomeController@index');
+Route::get('/', 'App\Http\Controllers\WelcomeController@index');
+
+Route::view('about', 'about.index')->name('about.index');
+Route::view('about/book', 'about.book')->name('about.book');
+Route::view('about/faq', 'about.faq')->name('about.faq');
+Route::view('about/privacy', 'about.privacy')->name('about.privacy');
+Route::view('about/tos', 'about.tos')->name('about.tos');
+
+Route::view('contact', 'contact.index')->name('contact.index');
+
+Route::get('events', 'App\Http\Controllers\EventsController@index')->name('events.index');
 Route::get('events/{id}', 'App\Http\Controllers\EventsController@show')->name('events.show');
+
+Route::get('languages', 'LanguagesController@index')->name('languages.index');
+
+Route::get('locations', 'LocationsController@index')->name('locations.index');
+
+Route::get('map', 'MapsController@index')->name('maps.index');
 
 Route::get(
     'events/category/{category}/{subcategory?}',
     'App\Http\Controllers\EventsController@category'
 );
 
-Route::get('events', 'App\Http\Controllers\EventsController@index');
 
 // Route::resource('tasks', 'App\Http\Controllers\TaskController');
 Auth::routes();
