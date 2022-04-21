@@ -27,8 +27,7 @@ Route::view('about/tos', 'about.tos')->name('about.tos');
 
 Route::view('contact', 'contact.index')->name('contact.index');
 
-Route::get('events', 'App\Http\Controllers\EventsController@index')->name('events.index');
-Route::get('events/{id}', 'App\Http\Controllers\EventsController@show')->name('events.show');
+Route::resource('events', 'App\Http\Controllers\EventsController');
 
 Route::get('languages', 'LanguagesController@index')->name('languages.index');
 

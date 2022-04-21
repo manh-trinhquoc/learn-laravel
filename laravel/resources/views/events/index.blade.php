@@ -9,40 +9,15 @@
 {!! HTML::script('js/app.js') !!}
 {!! HTML::style('css/app.css') !!}
 
-<ul>
-    @foreach ($events as $event)
-    <li>{{ $event }}</li>
-    @endforeach
-</ul>
 
+<h1>Events</h1>
 
 <ul>
     @forelse ($events as $event)
-    <li>{{ $event }}</li>
+    <li>{{ $event->name }}</li>
     @empty
-    <li>No events available.</li>
+    <li>No events found!</li>
     @endforelse
 </ul>
 
-<ul>
-    @foreach ($events as $event)
-    <li>
-        {{ $event }}
-        @if (strpos($event, 'Laravel') !== false)
-        (sweet framework!)
-        @elseif (strpos($event, 'Raspberry') !== false)
-        (love me some Raspberry Pi!)
-        @else
-        (don't know much about this one!)
-        @endif
-    </li>
-    @endforeach
-</ul>
-
-<table>
-    @foreach ($events as $event)
-
-    @include('partials._row', ['event' => $event])
-
-    @endforeach
-</table>
+{!! $events->links('vendor.pagination.simple-bootstrap-4') !!}
