@@ -14,7 +14,7 @@ class AddEnabledToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->boolean('enabled')->after('name')->default(true);
+            $table->boolean('published')->after('name')->default(true);
         });
     }
 
@@ -26,7 +26,7 @@ class AddEnabledToEventsTable extends Migration
     public function down()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn('enabled');
+            $table->dropColumn('published');
         });
     }
 }

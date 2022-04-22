@@ -14,7 +14,7 @@ class AddSlugColumnToEventsTable extends Migration
     public function up()
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string('slug')->nullable();
+            $table->string('slug')->after('name');
         });
     }
 
