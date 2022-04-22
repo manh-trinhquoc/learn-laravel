@@ -27,7 +27,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -38,7 +38,20 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $event = Event::create([
+        //     $request->input()
+        //      ]);
+        $event = new Event;
+        $event->name = $request->name;
+        $event->max_attendees = $request->max_attendees;
+        $event->description = $request->description;
+        $event->venue = 'venue';
+        $event->city = 'city';
+        $event->zip = 'zip';
+        $event->save();
+        // \flash('Event created!')->success();
+
+        return redirect()->route('events.show', ['event' => $event->slug]);
     }
 
     /**
