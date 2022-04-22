@@ -11,7 +11,7 @@
         Welcome to HackerPair 2
     </h1>
     <p>
-        <a href="{{ route('events.show', ['id' => 42]) }}" title="Laravel Hacking and Coffee">Laravel Hacking and Coffee </a>
+        <a href="{{ route('events.show', ['event' => 42]) }}" title="Laravel Hacking and Coffee">Laravel Hacking and Coffee </a>
     </p>
 
 </body>

@@ -53,7 +53,9 @@ class EventsController extends Controller
     // }
     public function show($id)
     {
-        $event = Event::findOrFail($id);
+        // $event = Event::findOrFail($id);
+        $slug = $id;
+        $event = Event::findBySlugOrFail($slug);
         return view('events.show')->with('event', $event);
     }
 

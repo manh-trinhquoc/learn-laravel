@@ -17,8 +17,8 @@ services:
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: example
-    # volumes:
-    #   - ./mysqldump/db_matterhorn_wp-init.sql:/docker-entrypoint-initdb.d/db_matterhorn_wp-init.sql
+    volumes:
+      - ./mysqldump/test_hackerpair.sql:/docker-entrypoint-initdb.d/test_hackerpair.sql
     
   web:
     image: nginx:alpine
