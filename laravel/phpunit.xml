@@ -28,11 +28,11 @@
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
 
-        <env name="DB_HOST" value="db" />
-        <env name="DB_PORT" value="3306" />
-        <env name="DB_DATABASE" value="laravel" />
-        <env name="DB_USERNAME" value="root" />
-        <env name="DB_PASSWORD" value="example" />
+        <server name="DB_HOST" value="db" />
+        <server name="DB_PORT" value="3306" />
+        <server name="DB_DATABASE" value="test_hackerpair" />
+        <server name="DB_USERNAME" value="root" />
+        <server name="DB_PASSWORD" value="example" />
 
     </php>
 </phpunit>

@@ -4,7 +4,6 @@ namespace Tests\Unit\Models;
 
 // use PHPUnit\Framework\TestCase;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class EventTest extends TestCase
 {
@@ -15,11 +14,23 @@ class EventTest extends TestCase
      */
     public function testEventDateTimeFieldIsACarbonObject()
     {
-        // $event = self::factory(\App\Models\Event::class)->makeOne();
-        $event = \App\Models\Event::factory()->create();
-        // var_dump($event->created_at);
-        // die;
-        // $event = \App\Models\User::factory()->makeOne();
-        $this->assertTrue(is_a($event->created_at, 'Illuminate\Support\Carbon'));
+        $event = \App\Models\Event::factory()->make();
+        $this->assertTrue(is_a($event->started_at, 'Illuminate\Support\Carbon'));
+    }
+
+    public function testEventNameCapitalizationIsCorrect()
+    {
+        $factory = \App\Models\Event::factory();
+        $event = $factory->make(
+            [
+                'name' => "have fun WITH the Raspberry Pi"
+            ]
+        );
+
+        // $event = $factory->state([
+        //     'name' => 'test state'
+        // ])->make();
+
+        $this->assertEquals($event->name, "Have Fun with the Raspberry Pi");
     }
 }

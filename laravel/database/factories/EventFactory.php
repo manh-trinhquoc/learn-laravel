@@ -20,6 +20,7 @@ class EventFactory extends Factory
             'max_attendees' => 3,
             'venue' => 'City Coffee Shop',
             'city' => 'Dublin',
+            'zip' => 'NA',
             'description' => "Let's drink coffee and learn Laravel together!"
         ];
     }

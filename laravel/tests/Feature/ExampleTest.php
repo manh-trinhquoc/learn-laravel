@@ -28,7 +28,7 @@ class ExampleTest extends TestCase
     // }
 
 
-    public function testNonexistentEndpointReturns404()
+    public function testNoneExistentEndpointReturns404()
     {
         $response = $this->get('/contact22222');
 
