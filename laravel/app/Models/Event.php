@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected static function boot()
     {
@@ -24,7 +26,8 @@ class Event extends Model
     protected $dates = [
         'created_at',
         'updated_at',
-        'started_at'
+        'started_at',
+        'deleted_at'
     ];
 
     public function getNameAttribute($value)

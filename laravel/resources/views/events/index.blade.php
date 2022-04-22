@@ -14,7 +14,7 @@
 
 <ul>
     @forelse ($events as $event)
-    <li>{{ $event->name }}</li>
+    <li> <a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></li>
     @empty
     <li>No events found!</li>
     @endforelse
