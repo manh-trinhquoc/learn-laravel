@@ -29,11 +29,11 @@ Route::view('contact', 'contact.index')->name('contact.index');
 
 Route::resource('events', 'App\Http\Controllers\EventsController');
 
-Route::get('languages', 'LanguagesController@index')->name('languages.index');
+// Route::get('languages', 'LanguagesController@index')->name('languages.index');
 
-Route::get('locations', 'LocationsController@index')->name('locations.index');
+// Route::get('locations', 'LocationsController@index')->name('locations.index');
 
-Route::get('map', 'MapsController@index')->name('maps.index');
+// Route::get('map', 'MapsController@index')->name('maps.index');
 
 Route::get(
     'events/category/{category}/{subcategory?}',

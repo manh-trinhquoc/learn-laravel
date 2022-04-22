@@ -113,6 +113,10 @@ class EventsController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        flash('Event: ' . $event->name . ' deleted!')->success();
+        return redirect()
+            ->route('events.index')
+            ->with('message', 'The event: ' . $event->name . ' has been deleted!');
     }
 }

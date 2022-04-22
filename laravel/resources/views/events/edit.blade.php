@@ -33,4 +33,11 @@
 
 {!! Form::close() !!}
 
+{!! Form::open(
+[
+'route' => ['events.destroy', $event],
+'method' => 'delete'
+]) !!}
+{!! Form::submit('Delete Event', ['class' => 'btn btn-danger']) !!}
+{!! Form::close() !!}
 @endsection
