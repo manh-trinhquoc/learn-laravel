@@ -13,5 +13,8 @@
 <p>
     {{ $event->description }}
 </p>
+<p>
+    {{ link_to_route('events.edit', 'Edit Event', ['event' => $event])}}
 
+</p>
 @endsection

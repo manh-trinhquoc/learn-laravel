@@ -49,9 +49,9 @@ class EventsController extends Controller
         $event->city = 'city';
         $event->zip = 'zip';
         $event->save();
-        // \flash('Event created!')->success();
+        flash('Event created!')->success();
 
-        return redirect()->route('events.show', ['event' => $event->slug]);
+        return redirect()->route('events.show', $event);
     }
 
     /**
@@ -80,7 +80,7 @@ class EventsController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('events.edit')->with('event', $event);
     }
 
     /**
@@ -92,7 +92,17 @@ class EventsController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        // $event->update([
+        //     'name' => $request->name,
+        //      'description' => $request->description
+        // ]);
+        $event->name = $request->name;
+        $event->description = $request->description;
+        $event->update();
+
+        return redirect()
+             ->route('events.edit', $event)
+             ->with('message', 'Event updated!');
     }
 
     /**
