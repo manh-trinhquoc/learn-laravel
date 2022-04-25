@@ -26,6 +26,8 @@ Route::view('about/privacy', 'about.privacy')->name('about.privacy');
 Route::view('about/tos', 'about.tos')->name('about.tos');
 
 Route::view('contact', 'contact.index')->name('contact.index');
+Route::get('contact', 'App\Http\Controllers\ContactController@create')->name('contact.create');
+Route::post('contact', 'App\Http\Controllers\ContactController@store')->name('contact.store');
 
 Route::resource('events', 'App\Http\Controllers\EventsController');
 
