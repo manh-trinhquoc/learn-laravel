@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->first_name . " " . $this->last_name;
     }
+
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
+    }
 }
