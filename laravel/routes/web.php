@@ -47,3 +47,21 @@ Route::get(
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+    Route::resource('category', 'CategoriesController');
+    Route::resource('list', 'ListsController');
+    Route::resource('product', 'ProductsController');
+    Route::resource('user', '\App\Http\Controllers\Admin\UsersController');
+});
+
+Route::group(
+    [
+     'prefix' => 'admin',
+     'namespace' => 'admin',
+     'middleware' => 'admin'
+     ],
+    function () {
+         Route::resource('users', 'UsersController');
+     }
+);
