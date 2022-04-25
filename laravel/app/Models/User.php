@@ -54,6 +54,11 @@ class User extends Authenticatable
 
     public function events()
     {
-        return $this->belongsToMany('App\Modal\Event') ->withTimestamps();
+        return $this->belongsToMany('App\Modal\Event')->withPivot('comment') ->withTimestamps();
+    }
+
+    public function state()
+    {
+        return $this->belongsTo('App\Modal\State');
     }
 }

@@ -91,6 +91,11 @@ class Event extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\Modal\User') ->withTimestamps();
+        return $this->belongsToMany('App\Modal\User')->withPivot('comment') ->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable');
     }
 }

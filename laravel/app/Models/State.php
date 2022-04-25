@@ -13,4 +13,14 @@ class State extends Model
     {
         return $this->hasMany('App\Model\Event');
     }
+
+    public function users()
+    {
+        return $this->hasMany('App\User');
+    }
+
+    public function favorites()
+    {
+        return $this->hasManyThrough('App\Modal\FavoriteEvent', 'App\Modal\User');
+    }
 }
