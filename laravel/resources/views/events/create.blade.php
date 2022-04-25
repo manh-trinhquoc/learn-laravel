@@ -37,6 +37,12 @@
             ])
             !!}
         </div>
+
+        <div class="form-group">
+            {!! Form::label('state_id', "State", ['class' => 'control-label']) !!}
+            {!! Form::select('state_id', \App\State::orderBy('name', 'asc')->pluck('name', 'id'), null, ['class' => 'form-control input-lg']); !!}
+        </div>
+
         <div class="form-group">
             {!! Form::submit('Add Event',
             [

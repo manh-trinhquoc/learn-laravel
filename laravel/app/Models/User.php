@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Profile');
     }
+
+    public function events()
+    {
+        return $this->belongsToMany('App\Modal\Event') ->withTimestamps();
+    }
 }

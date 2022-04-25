@@ -83,4 +83,14 @@ class Event extends Model
     {
         return 'slug';
     }
+
+    public function state()
+    {
+        return $this->belongsTo('App\Model\State');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\Modal\User') ->withTimestamps();
+    }
 }
