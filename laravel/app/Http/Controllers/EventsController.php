@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\EventStoreRequest;
 
 class EventsController extends Controller
 {
@@ -36,11 +38,32 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventStoreRequest $request)
     {
         // $event = Event::create([
         //     $request->input()
         //      ]);
+        // $request->validate([
+        //     'name' => 'required|string|min:10|max:50',
+        //     'max_attendees' => 'required|integer|digits_between:2,5',
+        //     'description' => 'required|string'
+        // ]);
+        // $rules = [
+        //      'name' => 'required|min:10|max:50',
+        //      'max_attendees' => 'required|integer|digits_between:2,5',
+        //      'description' => 'required'
+        //      ];
+
+        // $messages = [
+        //      'required' => 'Trường bắt buộc điền: :attribute',
+        //      'max_attendees.required' => 'Số lượng tối đa tham dự?',
+        //      'name.min' => 'tên sự kiện phải có tối thiểu 10 ký tự',
+        //      'name.max' => 'tên sự kiện không quá 50 ký tự',
+        //      'max_attendees.digits_between' => 'Số lượng nên trong khoảng 2 -> 5'
+        //      ];
+
+        // Validator::make($request->input(), $rules, $messages)->validate();
+
         $event = new Event;
         $event->name = $request->name;
         $event->max_attendees = $request->max_attendees;
