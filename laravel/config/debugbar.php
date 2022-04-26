@@ -56,7 +56,7 @@ return [
     |
     */
 
-    'editor' => env('DEBUGBAR_EDITOR', 'phpstorm'),
+    'editor' => env('DEBUGBAR_EDITOR', 'vscode-remote'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,8 +81,9 @@ return [
     |
     */
 
-    'remote_sites_path' => env('DEBUGBAR_REMOTE_SITES_PATH', ''),
-    'local_sites_path' => env('DEBUGBAR_LOCAL_SITES_PATH', ''),
+    'remote_sites_path' => env('DEBUGBAR_REMOTE_SITES_PATH', '/var/www/html'),
+    // 'local_sites_path' => env('DEBUGBAR_LOCAL_SITES_PATH', '/wsl$/Ubuntu/home/manhtq/docker-wsl2/laravel-begining/laravel'),
+    'local_sites_path' => env('DEBUGBAR_LOCAL_SITES_PATH', 'wsl+Ubuntu/home/manhtq/docker-wsl2/laravel-begining/laravel'),
 
     /*
      |--------------------------------------------------------------------------
