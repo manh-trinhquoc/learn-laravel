@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,6 @@ Route::view('about/faq', 'about.faq')->name('about.faq');
 Route::view('about/privacy', 'about.privacy')->name('about.privacy');
 Route::view('about/tos', 'about.tos')->name('about.tos');
 
-Route::view('contact', 'contact.index')->name('contact.index');
 Route::get('contact', 'App\Http\Controllers\ContactController@create')->name('contact.create');
 Route::post('contact', 'App\Http\Controllers\ContactController@store')->name('contact.store');
 
@@ -31,7 +31,8 @@ Route::resource('events', 'App\Http\Controllers\EventsController');
 
 // Route::get('languages', 'LanguagesController@index')->name('languages.index');
 
-// Route::get('locations', 'LocationsController@index')->name('locations.index');
+Route::view('locations', [Controllers\LocationsController::class, 'index'])->name('locations.index');
+Route::view('categories', [Controllers\CategoriesController::class, 'index'])->name('categories.index');
 
 // Route::get('map', 'MapsController@index')->name('maps.index');
 
@@ -47,19 +48,19 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
-    Route::resource('category', 'CategoriesController');
-    Route::resource('list', 'ListsController');
-    Route::resource('product', 'ProductsController');
+    // Route::resource('category', 'CategoriesController');
+    // Route::resource('list', 'ListsController');
+    // Route::resource('product', 'ProductsController');
     Route::resource('user', '\App\Http\Controllers\Admin\UsersController');
 });
 
-Route::group(
-    [
-     'prefix' => 'admin',
-     'namespace' => 'admin',
-     'middleware' => 'admin'
-     ],
-    function () {
-        Route::resource('users', 'UsersController');
-    }
-);
+// Route::group(
+//     [
+//      'prefix' => 'admin',
+//      'namespace' => 'admin',
+//      'middleware' => 'admin'
+//      ],
+//     function () {
+//         Route::resource('users', 'UsersController');
+//     }
+// );

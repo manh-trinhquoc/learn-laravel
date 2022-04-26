@@ -1,38 +1,15 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to HackerPair</title>
-</head>
+@section('content')
 
-<body>
-    <h1>
-        Welcome to HackerPair 2
-    </h1>
-    <p>
-        <a href="{{ route('events.show', ['event' => 42]) }}" title="Laravel Hacking and Coffee">Laravel Hacking and Coffee </a>
-    </p>
-    <p>
+<h2>{{ $content_title }}</h2>
 
-        @auth
-        Welcome back, {{ Auth::user()->name }}!
-        @else
-        Hello, stranger! <a href="{{ route('login') }}">Login</a>
-        or <a href="{{ route('register') }}">Register</a>.
-        @endauth
-    </p>
-    <p>
+@if (count($events) === 1)
+I have one event!
+@elseif (count($events) > 1)
+I have multiple events!
+@else
+<p> No events found.</p>
+@endif
 
-        @if (Auth::check())
-        Welcome back 2, {{ Auth::user()->name }}!
-        @else
-        Hello, stranger 2! <a href="{{ route('login') }}">Login</a>
-        or <a href="{{ route('register') }}">Register</a>.
-        @endif
-    </p>
-
-
-</body>
-
-</html>
+@endsection
