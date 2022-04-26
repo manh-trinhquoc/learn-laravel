@@ -62,6 +62,6 @@ Route::group(
      'middleware' => 'admin'
      ],
     function () {
-         Route::resource('users', 'UsersController');
-     }
+        Route::resource('users', 'UsersController');
+    }
 );
