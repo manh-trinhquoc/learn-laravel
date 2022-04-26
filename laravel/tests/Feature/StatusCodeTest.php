@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class StatusCodeTest extends TestCase
 {
     use RefreshDatabase;
     /**
@@ -13,7 +13,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_front_page_return_200()
     {
         $response = $this->get('/');
 
@@ -28,10 +28,17 @@ class ExampleTest extends TestCase
     // }
 
 
-    public function testNoneExistentEndpointReturns404()
+    public function test_none_Existent_Endpoint_Returns_404()
     {
         $response = $this->get('/contact22222');
 
         $response->assertStatus(404);
+    }
+
+    public function test_redirect_Returns_302()
+    {
+        $response = $this->get('/redirect');
+
+        $response->assertStatus(302);
     }
 }
