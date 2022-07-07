@@ -1,8 +1,7 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-// Variables
-@import 'variables';
+
 
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
@@ -10,12 +9,14 @@
 @import "~bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
+// Variables
+@import 'variables';
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/utilities";
-@import "~bootstrap/scss/utilities/api";
+
 
 // 4. Include any optional Bootstrap components as you like
 @import "~bootstrap/scss/root";
@@ -26,11 +27,14 @@
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/transitions";
 
+// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "~bootstrap/scss/utilities/api";
 
-// 5. Add additional custom code here
-
-//Custom
+// 6. Add additional custom code here
 @import 'reset';
 @import 'theme';
 @import 'navbar';
+@import 'footer';
+@import 'homepage';

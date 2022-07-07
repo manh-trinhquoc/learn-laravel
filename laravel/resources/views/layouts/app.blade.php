@@ -21,7 +21,7 @@
     <div id="app">
         @include('partials._navbar')
         @include('partials._jumbotron')
-        <main class="py-4">
+        <main class="container-fluid g-custom">
             @include('flash::message')
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -36,6 +36,7 @@
             @yield('content')
         </main>
     </div>
+    @include('partials._footer')
 </body>
 
 </html>

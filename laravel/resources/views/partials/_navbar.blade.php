@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-custom navbar-static-top" style="background-color: rgb(13, 33, 51);">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom navbar-static-top" style="background-color: rgb(13, 33, 51);">
     <div class="container">
         <a href="{{ url('/') }}" class="logo">
             {{ config('app.name') }}

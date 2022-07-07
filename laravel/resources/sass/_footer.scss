@@ -1,0 +1,51 @@
+// @import '~font-awesome/scss/font-awesome';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: #0D2133;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#myFooter {
+    h5 {
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+        line-height: 1.0;
+    }
+
+    .social-networks {
+        background-color: #0D2133;
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        width: 100%;
+
+        a {
+            font-size: 32px;
+            margin-right: 5px;
+            margin-left: 5px;
+            color: #f9f9f9;
+            padding: 10px;
+            -webkit-transition: 0.2s;
+            transition: 0.2s;
+        }
+    }
+
+    .footer-copyright {
+        padding-top: 10px;
+        padding-bottom: 3px;
+        text-align: center;
+        color: #ccc;
+        background-color: #0D2133;
+    }
+}
