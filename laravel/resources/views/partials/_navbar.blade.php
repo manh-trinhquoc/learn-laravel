@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-custom navbar-static-top" style="background-color: rgb(13, 33, 51);">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+        <a href="{{ url('/') }}" class="logo">
+            {{ config('app.name') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -12,22 +12,22 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('events.index') }}">{{ __('Events') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('events.index') }}">{{ __('Events') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('locations.index') }}">{{ __('Locations') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('locations.index') }}">{{ __('Locations') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('categories.index') }}">{{ __('Categories') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('categories.index') }}">{{ __('Categories') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about.index') }}">{{ __('About') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('about.index') }}">{{ __('About') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('contact.create') }}">{{ __('Contact Us') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('contact.create') }}">{{ __('Contact Us') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('about.book') }}">{{ __('The book') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('about.book') }}">{{ __('The book') }}</a>
                 </li>
             </ul>
 
@@ -37,18 +37,19 @@
                 @guest
                 @if (Route::has('login'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 @endif
 
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link navbar-text" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
                 @endif
                 @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link navbar-text dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
 

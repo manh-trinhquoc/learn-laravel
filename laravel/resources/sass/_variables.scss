@@ -1,7 +1,21 @@
+// scss-docs-start theme-color-variables
+$primary: #212529;
+// scss-docs-end theme-color-variables
 // Body
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
+$font-family-sans-serif: "Cpen Sans",
+sans-serif;
+$font-size-base: 1rem;
 $line-height-base: 1.6;
+
+// $font-size-base affects the font size of the body text
+$font-size-root: 16px;
+
+$link-color: #3097D1;
+$link-decoration: none;
+$link-hover-color: #216a94;
+$link-hover-decoration: underline;
+
+$navbar-padding-x: 1rem;
