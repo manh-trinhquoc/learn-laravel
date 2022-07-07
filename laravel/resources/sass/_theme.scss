@@ -5,3 +5,8 @@
     letter-spacing: 0.2em;
     color: white;
 }
+
+
+.breadcrumb-item+.breadcrumb-item::before {
+    --bs-breadcrumb-divider: ">";
+}

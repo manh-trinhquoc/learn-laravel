@@ -16,7 +16,7 @@ use App\Http\Controllers;
 
 Route::redirect('/redirect', '/');
 
-Route::get('/', 'App\Http\Controllers\WelcomeController@index');
+Route::get('/', [Controllers\WelcomeController::class, 'index'])->name('home');
 
 Route::view('about', 'about.index')->name('about.index');
 Route::view('about/book', 'about.book')->name('about.book');
@@ -31,8 +31,9 @@ Route::resource('events', 'App\Http\Controllers\EventsController');
 
 // Route::get('languages', 'LanguagesController@index')->name('languages.index');
 
-Route::view('locations', [Controllers\LocationsController::class, 'index'])->name('locations.index');
-Route::view('categories', [Controllers\CategoriesController::class, 'index'])->name('categories.index');
+Route::get('locations', [Controllers\LocationsController::class, 'index'])->name('locations.index');
+
+Route::get('categories', [Controllers\CategoriesController::class, 'index'])->name('categories.index');
 
 // Route::get('map', 'MapsController@index')->name('maps.index');
 
@@ -40,7 +41,6 @@ Route::get(
     'events/category/{category}/{subcategory?}',
     'App\Http\Controllers\EventsController@category'
 );
-
 
 // Route::resource('tasks', 'App\Http\Controllers\TaskController');
 Auth::routes();

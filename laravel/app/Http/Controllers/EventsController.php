@@ -18,8 +18,12 @@ class EventsController extends Controller
     public function index()
     {
         $events = Event::simplePaginate(10);
+        $data = [
+            'title_1' => 'Events',
+            'title_2' => 'Find an event that interests you!',
+        ];
 
-        return view('events.index')->with('events', $events);
+        return view('events.index', $data)->with('events', $events);
     }
 
     /**
@@ -92,6 +96,7 @@ class EventsController extends Controller
         // $event = Event::findOrFail($id);
         $slug = $id;
         $event = Event::findBySlugOrFail($slug);
+
         return view('events.show')->with('event', $event);
     }
 
@@ -138,6 +143,7 @@ class EventsController extends Controller
     {
         $event->delete();
         flash('Event: ' . $event->name . ' deleted!')->success();
+
         return redirect()
             ->route('events.index')
             ->with('message', 'The event: ' . $event->name . ' has been deleted!');
