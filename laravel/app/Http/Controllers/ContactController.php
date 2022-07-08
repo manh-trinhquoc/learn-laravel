@@ -10,7 +10,12 @@ class ContactController extends Controller
 {
     public function create()
     {
-        return view('contact.create');
+        $data = [
+            'title_1' => 'Contact HackerPair',
+            'title_2' => 'Your message will be delivered to our clandestine team',
+        ];
+
+        return view('contact.create', $data);
     }
 
     public function store(Request $request)
@@ -22,7 +27,6 @@ class ContactController extends Controller
         $contact['msg'] = $request->get('msg');
 
         Mail::to(config('mail.support.address'))->send(new ContactEmail($contact));
-
 
         flash('Your message has been sent!')->success();
 

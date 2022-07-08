@@ -10,3 +10,9 @@
 .breadcrumb-item+.breadcrumb-item::before {
     --bs-breadcrumb-divider: ">";
 }
+
+
+.btn-block {
+    display: block;
+    width: 100%;
+}

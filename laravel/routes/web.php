@@ -18,31 +18,29 @@ Route::redirect('/redirect', '/');
 
 Route::get('/', [Controllers\WelcomeController::class, 'index'])->name('home');
 
-Route::view('about', 'about.index')->name('about.index');
-Route::view('about/book', 'about.book')->name('about.book');
-Route::view('about/faq', 'about.faq')->name('about.faq');
-Route::view('about/privacy', 'about.privacy')->name('about.privacy');
-Route::view('about/tos', 'about.tos')->name('about.tos');
+Route::view('about', 'about.index', [
+    'title_1' => 'About HackerPair',
+    'title_2' => 'All about the drones, bots, and AIs behind this site',
+])->name('about.index');
+Route::view('about/book', 'about.book', [
+    'title_1' => 'Easy Laravel 5',
+    'title_2' => 'The latest edition is available in beta format!',
+])->name('about.book');
 
-Route::get('contact', 'App\Http\Controllers\ContactController@create')->name('contact.create');
-Route::post('contact', 'App\Http\Controllers\ContactController@store')->name('contact.store');
+Route::get('contact', [Controllers\ContactController::class, 'create'])->name('contact.create');
+Route::post('contact', [Controllers\ContactController::class, 'store'])->name('contact.store');
 
 Route::resource('events', 'App\Http\Controllers\EventsController');
-
-// Route::get('languages', 'LanguagesController@index')->name('languages.index');
 
 Route::get('locations', [Controllers\LocationsController::class, 'index'])->name('locations.index');
 
 Route::get('categories', [Controllers\CategoriesController::class, 'index'])->name('categories.index');
-
-// Route::get('map', 'MapsController@index')->name('maps.index');
 
 Route::get(
     'events/category/{category}/{subcategory?}',
     'App\Http\Controllers\EventsController@category'
 );
 
-// Route::resource('tasks', 'App\Http\Controllers\TaskController');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

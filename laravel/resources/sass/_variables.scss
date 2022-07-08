@@ -19,3 +19,12 @@ $link-hover-color: #216a94;
 $link-hover-decoration: underline;
 
 $navbar-padding-x: 1rem;
+
+$info: #0D2133;
+$btn-border-radius: 0px;
+$btn-border-radius-lg: 0px;
+$input-border-radius: 0px;
+$form-check-input-border-radius: 0px;
+
+
+$theme-colors: map-merge($theme-colors, ('primary-2' : #3097D1));

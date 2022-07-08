@@ -19,9 +19,23 @@
 
 <body>
     <div id="app">
-        @include('partials._navbar')
-        @include('partials._jumbotron')
-        <main class="container-fluid g-custom">
+        @section('partials._navbar')
+        <div>
+            @hasSection('partials._navbar')
+            @else
+            @include('partials._navbar')
+            @endif
+        </div>
+        @show
+        @section('partials._jumbotron')
+        <div>
+            @hasSection('partials._jumbotron')
+            @else
+            @include('partials._jumbotron')
+            @endif
+        </div>
+        @show
+        <main class="container g-custom">
             @include('flash::message')
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -36,7 +50,14 @@
             @yield('content')
         </main>
     </div>
-    @include('partials._footer')
+    @section('partials._footer')
+    <div>
+        @hasSection('partials._footer')
+        @else
+        @include('partials._footer')
+        @endif
+    </div>
+    @show
 </body>
 
 </html>

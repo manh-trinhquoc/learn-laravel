@@ -26,6 +26,24 @@ Breadcrumbs::for('categories.index', function (BreadcrumbTrail $trail) {
     $trail->push('Categories', route('categories.index'));
 });
 
+// Home > About
+Breadcrumbs::for('about.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('About', route('about.index'));
+});
+
+// Home > About > Book
+Breadcrumbs::for('about.book', function (BreadcrumbTrail $trail) {
+    $trail->parent('about.index');
+    $trail->push('Book', route('about.book'));
+});
+
+// Home > Contact
+Breadcrumbs::for('contact.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Contact', route('contact.create'));
+});
+
 // Home > Blog > [Category]
 Breadcrumbs::for('category', function (BreadcrumbTrail $trail, $category) {
     $trail->parent('blog');
