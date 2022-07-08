@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="{{ $classBody }}">
     <div id="app">
         @section('partials._navbar')
         <div>

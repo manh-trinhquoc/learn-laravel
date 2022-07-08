@@ -16,3 +16,11 @@
     display: block;
     width: 100%;
 }
+
+.btn-primary.btn-primary {
+    color: white;
+
+    &:hover {
+        color: white;
+    }
+}

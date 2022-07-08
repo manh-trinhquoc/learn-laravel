@@ -80,7 +80,7 @@
 
                 <div class="row mb-3">
                     <div class="col">
-                        <button type="submit" class="btn btn-primary-2 btn-lg" style="width: 100%;">
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
                             {{ __('Login') }}
                         </button>
                     </div>

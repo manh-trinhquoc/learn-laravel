@@ -1,8 +1,14 @@
 // scss-docs-start theme-color-variables
-$primary: #212529;
+// $primary: #212529;
 // scss-docs-end theme-color-variables
 // Body
 $body-bg: #f8fafc;
+$primary: #2881b3;
+$info: #0D2133;
+
+$theme-colors: map-merge($theme-colors,
+    ('primary' : $primary,
+        'info' : $info));
 
 // Typography
 $font-family-sans-serif: "Cpen Sans",
@@ -20,11 +26,7 @@ $link-hover-decoration: underline;
 
 $navbar-padding-x: 1rem;
 
-$info: #0D2133;
 $btn-border-radius: 0px;
 $btn-border-radius-lg: 0px;
 $input-border-radius: 0px;
 $form-check-input-border-radius: 0px;
-
-
-$theme-colors: map-merge($theme-colors, ('primary-2' : #3097D1));
