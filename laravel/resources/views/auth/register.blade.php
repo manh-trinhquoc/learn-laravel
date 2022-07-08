@@ -61,7 +61,7 @@
                 <div class="mb-3">
                     <label for="zip_code" class=" col-form-label text-md-end">{{ __('Zip Code*') }}</label> <br>
 
-                    <input id="zip_code" type="zip_code" class="form-control @error('zip_code') is-invalid @enderror" name="zip_code" value="{{ old('zip_code') }}" required
+                    <input id="zip_code" type="text" class="form-control @error('zip_code') is-invalid @enderror" name="zip_code" value="{{ old('zip_code') }}" required
                         autocomplete="zip_code">
 
                     @error('zip_code')
@@ -74,14 +74,29 @@
                 <div class="mb-3">
                     <label for="time_zone" class=" col-form-label text-md-end">{{ __('Time Zone*') }}</label> <br>
 
-                    <input id="time_zone" type="time_zone" class="form-control @error('time_zone') is-invalid @enderror" name="time_zone" value="{{ old('time_zone') }}"
-                        required autocomplete="time_zone">
+                    {!! Form::select('timezone',
+                    [
+                    'America/New_York' => 'Eastern Time',
+                    'America/Chicago' => 'Central Time',
+                    'America/Denver' => 'Mountain Time',
+                    'America/Phoenix' => 'Mountain Time (no DST)',
+                    'America/Los_Angeles' => 'Pacific Time',
+                    'America/Anchorage' => 'Alaska Time',
+                    'America/Adak' => 'Hawaii-Aleutian (no DST)',
+                    'Pacific/Honolulu' => 'Hawaii-Aleutian Time (no DST)'
+                    ],
+                    null, ['class' => 'form-control input-lg']); !!}
 
                     @error('time_zone')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+                    @if ($errors->has('time_zone'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('timezone') }}</strong>
+                    </span>
+                    @endif
                 </div>
 
                 <div class="mb-3">
