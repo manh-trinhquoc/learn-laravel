@@ -16,7 +16,7 @@ use App\Http\Controllers;
 
 Route::redirect('/redirect', '/');
 
-Route::get('/', [Controllers\WelcomeController::class, 'index'])->name('home');
+Route::get('/', [Controllers\WelcomeController::class, 'index'])->name('frontpage');
 
 Route::view('about', 'about.index', [
     'title_1' => 'About HackerPair',

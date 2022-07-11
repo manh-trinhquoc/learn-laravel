@@ -41,18 +41,6 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }} row mb-3">
-                    <div class="col">
-                        <input id="username" type="username" class="form-control" name="username" value="{{ old('username') }}" autofocus placeholder="Username">
-
-                        @if ($errors->has('username'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('username') }}</strong>
-                        </span>
-                        @endif
-                    </div>
-                </div>
-
                 <div class="row mb-3">
                     <div class="col">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required
@@ -69,7 +57,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" value="1" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label class="form-check-label" for="remember">
                                 {{ __('Remember Me') }}

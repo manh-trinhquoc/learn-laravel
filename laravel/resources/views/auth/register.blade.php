@@ -74,7 +74,7 @@
                 <div class="mb-3">
                     <label for="time_zone" class=" col-form-label text-md-end">{{ __('Time Zone*') }}</label> <br>
 
-                    {!! Form::select('timezone',
+                    {!! Form::select('time_zone',
                     [
                     'America/New_York' => 'Eastern Time',
                     'America/Chicago' => 'Central Time',

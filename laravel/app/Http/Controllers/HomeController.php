@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $data = [
+            'title_1' => 'Home page',
+            'title_2' => 'Login successfully',
+        ];
+        // $user = Auth::user();
+        // var_dump(Auth::user());
+        // $id = Auth::id();
+        // var_dump($id);
+        // var_dump($request->user());
+        // die(__FILE__);
+
+        return view('home', $data);
     }
 }
