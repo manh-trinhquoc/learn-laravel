@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head.js')
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endsection
+
 @section('content')
 <div class="contact create">
     {{ Breadcrumbs::render() }}
@@ -345,7 +349,9 @@
                 {!! Form::label('msg', 'Message') !!}
                 {!! Form::textarea('msg', null, ['class' => 'form-control']) !!}
             </div>
-
+            <div class="form-group mb-3">
+                {!! NoCaptcha::display() !!}
+            </div>
             {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
 
             {!! Form::close() !!}

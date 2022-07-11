@@ -27,7 +27,16 @@ class ContactFormRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'msg' => 'required'
+            'msg' => 'required',
+            'g-recaptcha-response' => 'required | captcha',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'g-recaptcha-response.required' => " Check the box to the left of 'I am not a robot'. ",
+            'g-recaptcha-response.captcha' => ' The check result of "I am not a robot" could not be confirmed. ',
         ];
     }
 }

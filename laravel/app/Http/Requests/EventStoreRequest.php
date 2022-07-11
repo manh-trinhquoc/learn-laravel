@@ -34,10 +34,10 @@ class EventStoreRequest extends FormRequest
     {
         return [
             'required' => 'Trường bắt buộc điền: :attribute',
-                 'max_attendees.required' => 'Số lượng tối đa tham dự?',
-                 'name.min' => 'tên sự kiện phải có tối thiểu 10 ký tự',
-                 'name.max' => 'tên sự kiện không quá 50 ký tự',
-                 'max_attendees.digits_between' => 'Số lượng nên trong khoảng 2 -> 5'
+            'max_attendees.required' => 'Số lượng tối đa tham dự?',
+            'name.min' => 'tên sự kiện phải có tối thiểu 10 ký tự',
+            'name.max' => 'tên sự kiện không quá 50 ký tự',
+            'max_attendees.digits_between' => 'Số lượng nên trong khoảng 2 -> 5'
         ];
     }
 }
