@@ -114,5 +114,9 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
+    /**
+     * custom
+     */
+    'mail-to' => env('MAIL_TO', 'hello@example.com'),
+    'mail-subject' => env('MAIL_SUBJECT', 'MAIL_SUBJECT')
 ];
