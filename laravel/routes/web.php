@@ -62,3 +62,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 //         Route::resource('users', 'UsersController');
 //     }
 // );
+
+Route::resource('favorites', 'FavoritesController');
+Route::resource('users.hosted', 'UserHostedEventsController');
+Route::get('users/{user}/hosted/{any_hosted_event}/edit', 'UserHostedEventsController@edit');
+Route::put('users/{user}/hosted/{any_hosted_event}', 'UserHostedEventsController@update');
+Route::resource('users.upcoming', 'UserUpcomingEventsController');

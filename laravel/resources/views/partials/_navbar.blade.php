@@ -50,20 +50,28 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link navbar-text dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" v-pre>
-                        {{ Auth::user()->first_name }}
+                        <span>Hi, </span> <span>{{ Auth::user()->first_name }}</span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                    <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                        <li><a href="http://hackerpair.com/admin/users/154/edit" class="dropdown-item">Account Profile</a></li>
+                        <li><a href="http://hackerpair.com/favorites" class="dropdown-item">Favorited Events</a></li>
+                        <li><a href="http://hackerpair.com/users/154/upcoming" class="dropdown-item">Upcoming Events</a></li>
+                        <li><a href="http://hackerpair.com/users/154/hosted" class="dropdown-item">Hosted Events</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+
+                    </ul>
                 </li>
+                <li class="nav-item"><a href="http://hackerpair.com/users/154/hosted/create" class="nav-link">Post Event</a></li>
                 @endguest
             </ul>
         </div>
