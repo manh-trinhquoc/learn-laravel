@@ -13,6 +13,7 @@ class Event extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use Sluggable, SluggableScopeHelpers;
 
     protected static function boot()
     {
@@ -39,7 +40,7 @@ class Event extends Model
         $modifiedName = [];
 
         foreach ($name as $word) {
-            if (! in_array(strtolower($word), $ignore)) {
+            if (!in_array(strtolower($word), $ignore)) {
                 $modifiedName[] = ucfirst($word);
             } else {
                 $modifiedName[] = strtolower($word);
@@ -69,7 +70,6 @@ class Event extends Model
         return $query->where('max_attendees', $maximum);
     }
 
-    use Sluggable, SluggableScopeHelpers;
     public function sluggable(): array
     {
         return [
@@ -91,11 +91,11 @@ class Event extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\Modal\User')->withPivot('comment') ->withTimestamps();
+        return $this->belongsToMany('App\Modal\User')->withPivot('comment')->withTimestamps();
     }
 
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Model\Comment', 'commentable');
     }
 }

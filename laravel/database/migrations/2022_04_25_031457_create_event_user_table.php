@@ -15,10 +15,10 @@ class CreateEventUserTable extends Migration
     {
         Schema::create('event_user', function (Blueprint $table) {
             $table->bigInteger('event_id')->unsigned()->nullable();
-            $table->foreign('event_id')->references('id') ->on('events')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
 
             $table->bigInteger('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id') ->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });

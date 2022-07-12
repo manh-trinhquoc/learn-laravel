@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Event;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class EventTableSeeder extends Seeder
 {
@@ -14,7 +16,9 @@ class EventTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('events')->truncate();
+        Schema::disableForeignKeyConstraints();
+        DB::table('events')->truncate();
+        Schema::enableForeignKeyConstraints();
 
         $faker = \Faker\Factory::create();
 
