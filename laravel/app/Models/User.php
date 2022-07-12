@@ -86,12 +86,14 @@ class User extends Authenticatable
             ], false));
             // var_dump($url);
 
-            return (new MailMessage)
-                ->subject(Lang::get('Reset Password Notification 2'))
+            $mail = new MailMessage();
+            $mail->subject(Lang::get('Reset Password Notification 2'))
                 ->line(Lang::get('You are receiving this email because we received a password reset request for your account. 3'))
                 ->action(Lang::get('Reset Password 4'), $url)
                 ->line(Lang::get('This password reset link will expire in :count minutes. 5', ['count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')]))
                 ->line(Lang::get('If you did not request a password reset, no further action is required. 6'));
+
+            return $mail;
         });
         parent::sendPasswordResetNotification($token);
     }

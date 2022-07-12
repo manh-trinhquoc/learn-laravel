@@ -4,3 +4,6 @@
 ## Design
  - Locations, Events, Languages, and Map sections will be database-driven
  - About, Contact Us, About the Book sections could get by as static HTML files
+
+## Mail
+ - Xài mailgun thấy thẻ a bị lọc mất href. Xài gmail bình thường
