@@ -14,7 +14,7 @@ class AddOauthFieldsToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->interger('provider_id')->unsigned()->nullable();
+            $table->integer('provider_id')->unsigned()->nullable();
             $table->string('handle_github')->nullable();
         });
     }

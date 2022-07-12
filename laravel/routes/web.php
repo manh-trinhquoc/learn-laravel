@@ -43,7 +43,7 @@ Route::get(
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     // Route::resource('category', 'CategoriesController');
@@ -68,3 +68,6 @@ Route::resource('users.hosted', 'UserHostedEventsController');
 Route::resource('users.upcoming', 'UserUpcomingEventsController');
 Route::get('users/{user}/hosted/{any_hosted_event}/edit', 'UserHostedEventsController@edit');
 Route::put('users/{user}/hosted/{any_hosted_event}', 'UserHostedEventsController@update');
+
+Route::get('auth/github', [Controllers\Auth\SocialGitHubController::class, 'redirectToProvider']);
+Route::get('auth/github/callback', [Controllers\Auth\SocialGitHubController::class, 'handleProviderCallback']);
