@@ -30,6 +30,7 @@ RUN apt-get install -y build-essential
 
 # cài require cho chrome webdriver để chạy headless chrome
 # 1. Cài driver
+RUN apt-get update
 RUN apt-get install -y libnss3 chromium-browser
 # 2. Cài chrome
 RUN apt-get -y install libgconf-2-4 unzip xvfb libxi6 

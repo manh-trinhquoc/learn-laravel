@@ -35,7 +35,7 @@ services:
     build:
       context: .
       dockerfile: Ubuntu.Dockerfile
-    image: manhtq-ubuntu20:lastest
+    image: manhtq-ubuntu20-with-chromium:lastest
     user: root
     volumes:
       - ./laravel/:/var/www/html
