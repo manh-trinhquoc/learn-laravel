@@ -9,6 +9,17 @@ class Profile extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'title',
+        'zip_code',
+        'time_zone',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');

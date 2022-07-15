@@ -23,9 +23,6 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name',
         'last_name',
-        'title',
-        'zip_code',
-        'time_zone',
         'email',
         'password',
     ];
@@ -56,17 +53,12 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne('App\Profile');
+        return $this->hasOne('App\Models\Profile');
     }
 
     public function events()
     {
         return $this->belongsToMany('App\Modal\Event')->withPivot('comment')->withTimestamps();
-    }
-
-    public function state()
-    {
-        return $this->belongsTo('App\Modal\State');
     }
 
     /**

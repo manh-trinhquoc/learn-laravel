@@ -16,9 +16,11 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('url');
-            $table->string('telephone');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('title');
+            $table->string('zip_code');
+            $table->string('time_zone');
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }

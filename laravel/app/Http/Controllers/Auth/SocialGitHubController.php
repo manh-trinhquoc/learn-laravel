@@ -8,6 +8,7 @@ use Auth;
 use Carbon\Carbon;
 use Socialite;
 use App\Models\User;
+use App\Models\Github;
 
 class SocialGitHubController extends Controller
 {
@@ -26,9 +27,11 @@ class SocialGitHubController extends Controller
         $githubUser = Socialite::driver('github')->user();
         // var_dump($githubUser);
         // die(__FILE__);
-
-        $existingUser = User::where('provider_id', $githubUser->getId())->first();
-
+        $existingGithub = Github::where('user_id', $githubUser->getId())->first();
+        $existingUser = null;
+        if ($existingGithub) {
+            $existingUser = User::where('id', $existingGithub->user_id)->first();
+        }
         if ($existingUser) {
             Auth::login($existingUser);
         } else {
@@ -36,15 +39,16 @@ class SocialGitHubController extends Controller
 
             $newUser->first_name = $githubUser->name;
             $newUser->last_name = '';
-            $newUser->title = '';
-            $newUser->zip_code = '';
-            $newUser->time_zone = '';
-            $newUser->email = $githubUser->email;
-            $newUser->provider_id = $githubUser->id;
-            $newUser->handle_github = $githubUser->nickname;
-            $newUser->password = bcrypt(uniqid());
 
+            $newUser->email = $githubUser->email;
+            $newUser->password = bcrypt(uniqid());
             $newUser->save();
+
+            Github::create([
+                'user_id' => $newUser->id,
+                'provider_id' => $githubUser->id,
+                'handle_github' => $githubUser->nickname,
+            ]);
 
             Auth::login($newUser);
         }

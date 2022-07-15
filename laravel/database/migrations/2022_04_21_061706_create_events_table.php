@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('venue');
             $table->string('city');
             $table->string('zip');
-            $table->integer('max_attendees');
+            $table->unsignedSmallInteger('max_attendees');
             $table->text('description')->nullable();
             $table->timestamp('started_at')->useCurrent();
             $table->timestamps();
