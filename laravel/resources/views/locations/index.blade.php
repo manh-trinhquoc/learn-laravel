@@ -9,12 +9,27 @@
             <thead>
                 <tr>
                     <th>State</th>
-                    <th>Upcoming Events</th>
-                    <th>Recently Posted</th>
+                    <th>Events</th>
+                    <th>Start Date</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                @forelse ($eventsByState as $event)
+                <tr>
+                    <td>{{ $event->state_name }}</td>
+                    <td><a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></td>
+                    <td>{{ $event->started_at->format('D M/d/Y H:i') }}</td>
+                </tr>
+                @empty
+                <tr>
+                    <td>No events found!</td>
+                </tr>
+                @endforelse
+            </tbody>
         </table>
+        <div>
+            {!! $eventsByState->links('vendor.pagination.bootstrap-4') !!}
+        </div>
     </div>
     <div class="col-md-6">
         <h4>{{ $title_4 }}</h4>
@@ -26,8 +41,23 @@
                     <th>Upcoming Events</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                @forelse ($eventsByCity as $event)
+                <tr>
+                    <td>{{ $event->city }}</td>
+                    <td>{{ $event->state_name }}</td>
+                    <td><a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></td>
+                </tr>
+                @empty
+                <tr>
+                    <td>No events found!</td>
+                </tr>
+                @endforelse
+            </tbody>
         </table>
+        <div>
+            {!! $eventsByCity->links('vendor.pagination.bootstrap-4') !!}
+        </div>
     </div>
 </div>
 @endsection

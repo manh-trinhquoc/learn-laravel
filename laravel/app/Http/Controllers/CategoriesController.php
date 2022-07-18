@@ -14,6 +14,21 @@ class CategoriesController extends Controller
             'title_3' => 'Events by category',
         ];
 
+        // $eventsByCategory = Event::where('started_at', '>', Carbon::now()->subDays(0)->toDateTimeString())
+        //     ->addSelect('category', 'slug', 'started_at')
+        //     ->orderBy('category')
+        //     ->orderBy('started_at')
+        //     ->paginate(
+        //         $perPage = 5,
+        //         $columns = ['*'],
+        //         $pageName = 'eventsByCategory'
+        //     );
+
+        // $data = array_merge($data, [
+        //     'eventsByCategory' => $eventsByCategory,
+        //     'eventsByCity' => $eventsByCity,
+        // ]);
+
         return view('categories.index', $data);
     }
 }

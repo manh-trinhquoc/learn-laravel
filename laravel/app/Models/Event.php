@@ -70,6 +70,17 @@ class Event extends Model
         return $query->where('max_attendees', $maximum);
     }
 
+    public function scopeWithStatesTable($query)
+    {
+        return $query->leftjoin('states', 'state_id', '=', 'states.id')
+            ->addSelect('states.id as state_id')
+            ->addSelect('states.name as state_name')
+            ->addSelect('states.abbreviation as state_abbr')
+            ->addSelect('events.id as id')
+            ->addSelect('events.name as name')
+        ;
+    }
+
     public function sluggable(): array
     {
         return [
@@ -86,16 +97,16 @@ class Event extends Model
 
     public function state()
     {
-        return $this->belongsTo('App\Model\State');
+        return $this->belongsTo('App\Models\State');
     }
 
     public function users()
     {
-        return $this->belongsToMany('App\Modal\User')->withPivot('comment')->withTimestamps();
+        return $this->belongsToMany('App\Models\User')->withPivot('comment')->withTimestamps();
     }
 
     public function comments()
     {
-        return $this->morphMany('App\Model\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 }

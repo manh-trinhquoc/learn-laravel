@@ -11,16 +11,16 @@ class State extends Model
 
     public function events()
     {
-        return $this->hasMany('App\Model\Event');
+        return $this->hasMany('App\Models\Event');
     }
 
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany('App\Models\User');
     }
 
     public function favorites()
     {
-        return $this->hasManyThrough('App\Modal\FavoriteEvent', 'App\Modal\User');
+        return $this->hasManyThrough('App\Models\FavoriteEvent', 'App\Models\User');
     }
 }
