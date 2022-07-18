@@ -17,7 +17,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Event::simplePaginate(10);
+        $events = Event::paginate(20);
         $data = [
             'title_1' => 'Events',
             'title_2' => 'Find an event that interests you!',

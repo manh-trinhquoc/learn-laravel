@@ -5,14 +5,14 @@
 <h3>
     {{ session('message') }}
 </h3>
-<ul>
+<ol>
     @forelse ($events as $event)
     <li> <a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></li>
     @empty
     <li>No events found!</li>
     @endforelse
-</ul>
+</ol>
 
-{!! $events->links('vendor.pagination.simple-bootstrap-4') !!}
+{!! $events->links('vendor.pagination.bootstrap-4') !!}
 
 @endsection

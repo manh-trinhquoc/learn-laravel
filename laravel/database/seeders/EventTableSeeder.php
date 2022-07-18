@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Event;
+use App\Models\State;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -19,19 +20,55 @@ class EventTableSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         DB::table('events')->truncate();
         Schema::enableForeignKeyConstraints();
+        $limit = 50;
+        $path = base_path() . '/database/seeders/data/free-zipcode-database.csv';
+        $zip_code_data = $this->csvToArray($path, ',', $limit);
 
         $faker = \Faker\Factory::create();
 
-        foreach (range(1, 50) as $index) {
+        foreach (range(1, $limit) as $index) {
+            $randInt = $faker->numberBetween(0, $limit - 1);
+            $state_abbr = $zip_code_data[$randInt]['State'];
+            // $state_id = DB::table('states')->where('abbreviation', $state_abbr)->first()->id;
+            $state_id = State::where('abbreviation', $state_abbr)->first()->id;
+
             Event::create([
                 'name' => $faker->sentence(2),
                 'venue' => $faker->company,
-                'city' => $faker->city,
-                'zip' => $faker->countryCode(),
+                'city' => $zip_code_data[$randInt]['City'],
+                'zip' => $zip_code_data[$randInt]['Zipcode'],
+                'state_id' => $state_id,
                 'max_attendees' => $faker->numberBetween($min = 1, $max = 90),
                 'description' => $faker->paragraphs(1, true),
                 'started_at' => $faker->dateTimeBetween('now', '1 year')
             ]);
         }
+    }
+
+    private function csvToArray($filename = '', $delimiter = ',', $limit = PHP_INT_MAX)
+    {
+        if (!file_exists($filename) || !is_readable($filename)) {
+            return false;
+        }
+
+        $header = null;
+        $data = [];
+        if (($handle = fopen($filename, 'r')) !== false) {
+            $count = 0;
+            while (($row = fgetcsv($handle, 1000, $delimiter)) !== false) {
+                if ($count > $limit) {
+                    break;
+                }
+                $count++;
+                if (!$header) {
+                    $header = $row;
+                } else {
+                    $data[] = array_combine($header, $row);
+                }
+            }
+            fclose($handle);
+        }
+
+        return $data;
     }
 }
