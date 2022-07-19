@@ -81,6 +81,16 @@ class Event extends Model
         ;
     }
 
+    public function scopeWithCategoriesTable($query)
+    {
+        return $query->leftjoin('categories', 'category_id', '=', 'categories.id')
+            ->addSelect('categories.id as category_id')
+            ->addSelect('categories.name as category_name')
+            ->addSelect('events.id as id')
+            ->addSelect('events.name as name')
+        ;
+    }
+
     public function sluggable(): array
     {
         return [

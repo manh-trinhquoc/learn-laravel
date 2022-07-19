@@ -13,8 +13,24 @@
                     <th>Recently Posted</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                @forelse ($eventsByCategory as $event)
+                <tr>
+                    <td>{{ $event->category_name }}</td>
+                    <td><a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></td>
+                    <td><a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></td>
+                </tr>
+                @empty
+                <tr>
+                    <td>No events found!</td>
+                </tr>
+                @endforelse
+
+            </tbody>
         </table>
+        <div>
+            {!! $eventsByCategory->links('vendor.pagination.bootstrap-4') !!}
+        </div>
     </div>
 </div>
 @endsection
