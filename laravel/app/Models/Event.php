@@ -100,6 +100,11 @@ class Event extends Model
         return $this->belongsTo('App\Models\State');
     }
 
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
+
     public function users()
     {
         return $this->belongsToMany('App\Models\User')->withPivot('comment')->withTimestamps();

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Event;
 use App\Models\State;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
@@ -30,7 +32,10 @@ class EventTableSeeder extends Seeder
             $randInt = $faker->numberBetween(0, $limit - 1);
             $state_abbr = $zip_code_data[$randInt]['State'];
             // $state_id = DB::table('states')->where('abbreviation', $state_abbr)->first()->id;
-            $state_id = State::where('abbreviation', $state_abbr)->first()->id;
+            $state_id = State::where('abbreviation', $state_abbr)->limit(1)->orderByRaw('RAND()')->first()->id;
+
+            $user_id = User::addSelect('id')->limit(1)->orderByRaw('RAND()')->first()->id;
+            $category_id = Category::addSelect('id')->limit(1)->orderByRaw('RAND()')->first()->id;
 
             Event::create([
                 'name' => $faker->sentence(2),
@@ -40,7 +45,9 @@ class EventTableSeeder extends Seeder
                 'state_id' => $state_id,
                 'max_attendees' => $faker->numberBetween($min = 1, $max = 90),
                 'description' => $faker->paragraphs(1, true),
-                'started_at' => $faker->dateTimeBetween('now', '1 year')
+                'started_at' => $faker->dateTimeBetween('now', '1 year'),
+                'user_id' => $user_id,
+                'category_id' => $category_id
             ]);
         }
     }
