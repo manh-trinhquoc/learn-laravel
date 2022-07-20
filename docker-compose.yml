@@ -15,6 +15,7 @@ services:
       - db
   db:
     image: mysql:8.0
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_general_ci' , '--max_allowed_packet=32505856']     # Set max_allowed_packet to 256M (or any other value)
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: example
@@ -43,15 +44,15 @@ services:
       - db
     ports:
       - "8000:8000"
-  profiling:
-    build:
-      context: .
-      dockerfile: Profiling.Dockerfile
-    image: manhtq-profiling:lastest
-    volumes:
-      - ./docker/wordpress/tmp/xdebug:/tmp/
-    ports:
-      - "90:8080"
+  # profiling:
+  #   build:
+  #     context: .
+  #     dockerfile: Profiling.Dockerfile
+  #   image: manhtq-profiling:lastest
+  #   volumes:
+  #     - ./docker/wordpress/tmp/xdebug:/tmp/
+  #   ports:
+  #     - "90:8080"
   # adminer:
   #   image: adminer
   #   # restart: always
