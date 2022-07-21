@@ -14,11 +14,11 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($eventsByCategory as $event)
+                @forelse ($recentlyPostedItems as $key => $category)
                 <tr>
-                    <td>{{ $event->category_name }}</td>
-                    <td><a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></td>
-                    <td><a href="{{ route('events.show', ['event' => $event->slug]) }}">{{ $event->name }}</a></td>
+                    <td>{{ $category->name }}</td>
+                    <td><a href="{{ route('events.show', ['event' => $upcommingItems->get($key)->event_slug]) }}">{{ $upcommingItems->get($key)->event_name }}</a></td>
+                    <td><a href="{{ route('events.show', ['event' => $category->event_slug]) }}">{{ $category->event_name }}</a></td>
                 </tr>
                 @empty
                 <tr>
@@ -29,7 +29,7 @@
             </tbody>
         </table>
         <div>
-            {!! $eventsByCategory->links('vendor.pagination.bootstrap-4') !!}
+            {!! $recentlyPostedEvents->links('vendor.pagination.bootstrap-4') !!}
         </div>
     </div>
 </div>
